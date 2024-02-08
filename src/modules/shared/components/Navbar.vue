@@ -1,8 +1,8 @@
 <template>
   <div>
-    <router-link to="/">Pokemon List</router-link>
-    <router-link to="/id">Pokemon page</router-link>
-    <router-link to="/about">About</router-link>
+    <router-link to="/" active-class="active">Pokemon List</router-link>
+    <router-link to="/id" active-class="active">Pokemon page</router-link>
+    <router-link to="/about" active-class="active">About</router-link>
   </div>
 </template>
 
@@ -15,5 +15,8 @@ div a {
   font-weight: bold;
   color: #2c3e50;
   margin: 0 10px;
+}
+.active {
+  color: #42b983;
 }
 </style>
