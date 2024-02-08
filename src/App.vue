@@ -1,16 +1,23 @@
 <template>
   <div>
+    <Navbar />
     <img src="./assets/logo.png" alt="logo" />
     <router-view />
   </div>
 </template>
 
 <script>
-import PokemonPage from "./modules/pokemon/pages/PokemonPage.vue";
+import { defineAsyncComponent } from "vue";
 
 export default {
   name: "App",
-  components: { PokemonPage },
+  components: {
+    Navbar: defineAsyncComponent(() =>
+      import(
+        /* webpackChunkName: "Navbar" */ "@/modules/shared/components/Navbar.vue"
+      )
+    ),
+  },
 };
 </script>
 
