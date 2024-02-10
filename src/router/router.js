@@ -21,6 +21,14 @@ const routes = [
       import(
         /*webpackChunkName: "PokemonPage"*/ "../modules/pokemon/pages/PokemonPage"
       ),
+    props: (route) => {
+      const { pokemonid } = route.params;
+      const id = Number(pokemonid);
+      return {
+        id: isNaN(id) ? 1 : id,
+      };
+    },
+    name: "pokemon-id",
   },
   {
     path: "/:pathMatch(.*)*",
