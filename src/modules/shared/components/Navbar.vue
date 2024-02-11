@@ -4,7 +4,7 @@
       >Pokemon List</router-link
     >
     <router-link
-      :to="{ name: 'pokemon-id', params: { pokemonid: 65 } }"
+      :to="{ name: 'pokemon-id', params: { id: 65 } }"
       active-class="active"
       >Pokemon page</router-link
     >
@@ -21,16 +21,25 @@ export default {
     return {
       links: [
         {
-          to: "/home",
+          to: "pokemon-home",
           name: "Pokemons",
         },
         {
-          to: "/pokemonid/50",
-          name: "pokemon-id",
+          to: "pokemon-id",
+          id: 10,
+          name: "Pokemon - By id",
         },
         {
-          to: "/about",
-          name: "About",
+          to: "pokemon-about",
+          name: "Pokemon - About",
+        },
+        {
+          to: "dbz-characters",
+          name: "DBZ - Characters",
+        },
+        {
+          to: "dbz-about",
+          name: "DBZ - About",
         },
         {
           to: "https://google.com",

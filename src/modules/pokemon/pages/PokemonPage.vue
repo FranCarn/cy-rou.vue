@@ -19,8 +19,8 @@ export default {
     };
   },
   created() {
-    // const { pokemonid } = this.$route.params;
-    // this.id = pokemonid;
+    // const { id } = this.$route.params;
+    // this.id = id;
     this.getPokemon();
   },
   methods: {

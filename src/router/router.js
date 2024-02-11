@@ -27,22 +27,23 @@ const routes = [
           ),
       },
       {
-        path: "pokemonId/:pokemonid",
+        path: "id/:id",
         component: () =>
           import(
             /*webpackChunkName: "PokemonPage"*/ "../modules/pokemon/pages/PokemonPage"
           ),
         props: (route) => {
-          const { pokemonid } = route.params;
-          const id = Number(pokemonid);
+          const { id } = route.params;
+          const numberId = Number(id);
           return {
-            id: isNaN(id) ? 1 : id,
+            id: isNaN(numberId) ? 1 : numberId,
           };
         },
         name: "pokemon-id",
       },
       {
         path: "",
+        name: "pokemon-redirect",
         redirect: { name: "pokemon-about" },
       },
     ],
@@ -64,6 +65,7 @@ const routes = [
       },
       {
         path: "",
+        name: "dbz-redirect",
         redirect: { name: "dbz-characters" },
       },
     ],
