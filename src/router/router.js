@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import isAuthenticatedGuard from "./auth-guard";
 
 const routes = [
   {
@@ -51,6 +52,8 @@ const routes = [
   {
     path: "/dbz",
     name: "dbz-home",
+    // Specific routes guard
+    beforeEnter: [isAuthenticatedGuard],
     component: () => import("../modules/dbz/layouts/DbzLayout"),
     children: [
       {
@@ -80,5 +83,38 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
+
+// Synchronous global guard
+
+// router.beforeEach((to, from, next) => {
+// const random = Math.random() * 100;
+// if (random > 50) {
+//   console.log("authenticated");
+//   next();
+// } else {
+//   console.log(random, "unautorized");
+//   next({ name: "pokemon-home" });
+// }
+// });
+
+// Asynchronous global guard
+
+// const canAccess = () => {
+//   return new Promise((resolve) => {
+//     const random = Math.random() * 100;
+//     if (random > 50) {
+//       console.log("Authenticated");
+//       resolve(true);
+//     } else {
+//       console.log(random, "unautorized");
+//       resolve(false);
+//     }
+//   });
+// };
+
+// router.beforeEach(async (to, from, next) => {
+//   const authorized = await canAccess();
+//   authorized ? next() : next({ name: "pokemon-home" });
+// });
 
 export default router;
