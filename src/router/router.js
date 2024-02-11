@@ -48,6 +48,27 @@ const routes = [
     ],
   },
   {
+    path: "/dbz",
+    name: "dbz-home",
+    component: () => import("../modules/dbz/layouts/DbzLayout"),
+    children: [
+      {
+        path: "characters",
+        name: "dbz-characters",
+        component: () => import("../modules/dbz/pages/Characters"),
+      },
+      {
+        path: "about",
+        name: "dbz-about",
+        component: () => import("../modules/dbz/pages/About"),
+      },
+      {
+        path: "",
+        redirect: { name: "dbz-characters" },
+      },
+    ],
+  },
+  {
     path: "/:pathMatch(.*)*",
     component: () => import("../modules/shared/pages/NotFoundPage"),
   },
